@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+	
+	<bean id="dept1" class="com.cognizant.Department" scope="prototype" primary="true">
+		<property name="deptName" value="Accounts" />
+	</bean>
+	<bean id="dept2" class="com.cognizant.Department" scope="prototype">
+		<property name="deptName" value="HR" />
+	</bean>
+
+
+	<bean id="emp1" class="com.cognizant.Employee" primary="true">
+		<property name="name" value="Ashutosh" />
+		<property name="address" value="Hyderabad" />
+		<property name="department" ref="dept1" />
+	</bean>
+	<bean id="emp2" class="com.cognizant.Employee">
+		<property name="name" value="Anirudh" />
+		<property name="address" value="Pune" />
+		<property name="department" ref="dept2" />
+
+	</bean>
+	<bean id="emp3" class="com.cognizant.Employee">
+		<property name="name" value="Nandini" />
+		<property name="address" value="Mumbai" />
+		<property name="department" ref="dept1" />
+
+	</bean>
+	<bean id="emp4" class="com.cognizant.Employee">
+		<property name="name" value="Geetha" />
+		<property name="address" value="Hyderabad" />
+		<property name="department" ref="dept2" />
+
+	</bean>
+	<bean id="employeeList" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<ref bean="emp1"></ref>
+				<ref bean="emp2"></ref>
+				<ref bean="emp3"></ref>
+				<ref bean="emp4"></ref>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="departmentList" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<ref bean="dept1"></ref>
+				<ref bean="dept2"></ref>
+				</list>
+		</constructor-arg>
+	</bean>
+
+</beans>
