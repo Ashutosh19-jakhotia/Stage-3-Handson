@@ -1,0 +1,11 @@
+.App{
+  display: block;
+}
+button{
+  text-align: center;
+  display: block;
+  margin: 3px;
+}
+.head{
+  color: green;
+}
